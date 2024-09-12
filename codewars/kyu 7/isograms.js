@@ -9,7 +9,9 @@
 // "moOse" --> false (ignore letter case)
 //
 // SOLUTION
-function isIsogram(str) {
+
+//Method 1
+/* function isIsogram(str) {
   if (str === "") return true;
 
   const result = str
@@ -24,6 +26,16 @@ function isIsogram(str) {
       return accum;
     }, {});
   return Math.max(...Object.values(result)) === 1;
+} */
+
+//Method 2
+function isIsogram(str) {
+  if (str === "") return true;
+
+  return str
+    .toLowerCase()
+    .split("")
+    .every((element, index, arr) => arr.indexOf(element) === index);
 }
 
 console.log(isIsogram("Dermatoglyphics"));
